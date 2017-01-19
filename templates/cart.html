@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+<!-- {% if 'melons_in_cart' in session %}
+    
+    {{ session["melons_in_cart"] }}
+{% endif %}
+
+
+<ul>
+{% for melon in session['melons_in_cart'] %}
+    <li>{{ melon.name }}</li>
+    <li>{{ melon.price }}</li>
+{% endfor %}
+</ul>
+ -->
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Melon Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% if 'melons_in_cart' in session %}
+            {% for melon in session['melons_in_cart'] %}
+            <tr>
+                <td>{{ melon.name }}</td>
+                <td>5</td>
+                <td>{{ melon.price }}</td>
+                <td>$15.00</td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+
+    <h3>Total: $27.00</h3>
+
+    <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
+
+{% endblock %}
